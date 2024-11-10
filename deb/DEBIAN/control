@@ -1,0 +1,13 @@
+Source: myprogram
+Section: utils
+Priority: optional
+Maintainer: mazurenkomyroslav@gmail.com
+Build-Depends: debhelper-compat (= 12), build-essential
+Standards-Version: 4.5.0
+Homepage: https://your.homepage.com
+Package: myprogram
+Version: 1.0
+Architecture: any
+Depends: libc6, libstdc++6
+Description: MyProgram
+ A short description of what MyProgram does.
