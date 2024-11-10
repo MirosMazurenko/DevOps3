@@ -1,0 +1,11 @@
+Package: myprogram
+Version: 1.0-1
+Architecture: amd64
+Maintainer: Your Name <mazurenkomyroslav@gmail.com>
+Installed-Size: 23
+Depends: libc6 (>= 2.34), libstdc++6 (>= 13.1)
+Section: utils
+Priority: optional
+Homepage: https://your.homepage.com
+Description: MyProgram
+ A short description of what MyProgram does.

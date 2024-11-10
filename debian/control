@@ -1,0 +1,13 @@
+Source: myprogram
+Section: utils
+Priority: optional
+Maintainer: Your Name <mazurenkomyroslav@gmail.com>
+Build-Depends: debhelper-compat (= 12), build-essential
+Standards-Version: 4.5.0
+Homepage: https://your.homepage.com
+
+Package: myprogram
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: MyProgram
+ A short description of what MyProgram does.
