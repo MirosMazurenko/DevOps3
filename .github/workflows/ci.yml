@@ -17,3 +17,8 @@ jobs:
           make
       - name: Run Tests
         run: ./funcA
+      - name: Build tarball
+        run: |
+          make dist
+          ls myprogram-1.0.tar.gz
+          tar -tzf myprogram-1.0.tar.gz
