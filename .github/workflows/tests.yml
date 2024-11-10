@@ -17,7 +17,19 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y build-essential libgtest-dev automake autoconf
+          
+      - name: Install GCC 11
+        run: |
+          sudo apt-get install -y gcc-11 g++-11
+          
+      - name: Set GCC 11 as default
+        run: |
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100
+          sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 100
 
+      - name: Clean build
+        run: make clean
+      
       - name: Build
         run: |
           autoreconf -i
@@ -25,3 +37,4 @@ jobs:
 
       - name: Tests
         run: make check
+
