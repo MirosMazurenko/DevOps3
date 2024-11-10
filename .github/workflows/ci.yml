@@ -1,0 +1,19 @@
+name: Build and Test
+on:
+  push:
+    branches: [branchMake]
+  pull_request:
+    branches: [branchMake]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up C++ Build Environment
+        run: sudo apt update && sudo apt install -y g++
+      - name: Build with Makefile
+        run: |
+          make clean
+          make
+      - name: Run Tests
+        run: ./funcA
