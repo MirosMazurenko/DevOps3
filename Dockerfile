@@ -4,14 +4,14 @@ FROM gcc:latest AS build
 # Set the working directory
 WORKDIR /usr/src/app
 
-# Clone the repository from GitHub (replace <repo_url> with the actual URL)
-RUN git clone --branch branchHTTPserver https://github.com/MirosMazurenko/DevOps3.git
+# Clone the repository from GitHub
+RUN git clone --branch branchHTTPserver https://github.com/MirosMazurenko/DevOps3.git .
 
 # List the files in the working directory for debugging
-RUN ls -alh
+RUN ls -alh DevOps3
 
-# Compile the application
-RUN g++ -std=c++17 -o http_server HTTP_Server.cpp funcA.cpp
+# Compile the application from the correct path
+RUN g++ -std=c++17 -o http_server DevOps3/HTTP_Server.cpp DevOps3/funcA.cpp
 
 # Second stage: use an Alpine-based image to run the software
 FROM alpine:latest
