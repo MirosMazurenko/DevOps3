@@ -10,8 +10,8 @@ RUN git clone --branch branchHTTPserver https://github.com/MirosMazurenko/DevOps
 # List the files in the working directory for debugging (to see the cloned folder)
 RUN ls -alh .
 
-# Compile the application from the correct path
-RUN g++ -std=c++17 -o http_server DevOps3/HTTP_Server.cpp DevOps3/funcA.cpp
+# Compile the application from the correct path (no DevOps3 prefix needed)
+RUN g++ -std=c++17 -o http_server HTTP_Server.cpp funcA.cpp
 
 # Second stage: use an Alpine-based image to run the software
 FROM alpine:latest
@@ -30,3 +30,4 @@ EXPOSE 8081
 
 # Run the HTTP server
 CMD ["./http_server"]
+
