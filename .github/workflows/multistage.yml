@@ -33,6 +33,12 @@ jobs:
       - name: Build Dockerfile image for arm64
         run: docker buildx build --platform linux/arm64 -t miros12/http_server:arm64 --push .
 
+      # Ensure images are pushed successfully before manifest creation
+      - name: Pull images for validation (optional)
+        run: |
+          docker pull miros12/http_server:amd64
+          docker pull miros12/http_server:arm64
+
       - name: Create manifest
         run: |
           docker manifest create miros12/http_server \
