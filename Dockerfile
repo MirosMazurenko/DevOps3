@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 # Clone the repository from GitHub
 RUN git clone --branch branchHTTPserver https://github.com/MirosMazurenko/DevOps3.git .
 
-# List the files in the working directory for debugging
-RUN ls -alh DevOps3
+# List the files in the working directory for debugging (to see the cloned folder)
+RUN ls -alh .
 
 # Compile the application from the correct path
 RUN g++ -std=c++17 -o http_server DevOps3/HTTP_Server.cpp DevOps3/funcA.cpp
