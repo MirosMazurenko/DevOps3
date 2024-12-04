@@ -5,7 +5,7 @@ FROM gcc:latest AS build
 WORKDIR /usr/src/app
 
 # Clone the repository from GitHub (replace <repo_url> with the actual URL)
-RUN git clone https://github.com/MirosMazurenko/DevOps3.git .
+RUN git clone --branch branchHTTPserver https://github.com/MirosMazurenko/DevOps3.git
 
 # Compile the application
 RUN g++ -std=c++17 -o http_server HTTP_Server.cpp funcA.cpp
