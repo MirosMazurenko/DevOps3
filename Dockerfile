@@ -5,7 +5,7 @@ FROM gcc:latest AS build
 WORKDIR /usr/src/app
 
 # Clone the repository from GitHub
-RUN git clone --branch branchHTTPserverMulti https://github.com/MirosMazurenko/DevOps3.git .
+RUN git clone --branch branchHTTPservMulti https://github.com/MirosMazurenko/DevOps3.git .
 
 # List the files in the working directory for debugging (to see the cloned folder)
 RUN ls -alh .
