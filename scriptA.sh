@@ -4,7 +4,7 @@
 launch_container() {
     # $1 - Container name, $2 - CPU core
     echo "Launching container $1 on CPU core #$2"
-    sudo docker run --name "$1" --cpuset-cpus="$2" --network bridge -d denisshap/programnew
+    sudo docker run --name "$1" --cpuset-cpus="$2" --network bridge -d miros12/http_server
 }
 
 # Terminate a container
@@ -36,13 +36,13 @@ launch_container() {
         sudo docker rm -f "$1"
     fi
     echo "Launching container $1 on CPU core #$2"
-    sudo docker run --name "$1" --cpuset-cpus="$2" --network bridge -d denisshap/programnew
+    sudo docker run --name "$1" --cpuset-cpus="$2" --network bridge -d miros12/http_server
 }
 
 # Update running containers with a new image
 update_containers() {
     echo "Checking for newer image..."
-    pull_result=$(sudo docker pull denisshap/programnew | grep "Downloaded newer image")
+    pull_result=$(sudo docker pull miros12/http_server | grep "Downloaded newer image")
     if [ -n "$pull_result" ]; then
         echo "New image detected. Updating containers..."
         for container in srv1 srv2 srv3; do
