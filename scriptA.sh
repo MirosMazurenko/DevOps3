@@ -4,7 +4,7 @@
 launch_container() {
     # $1 - Container name, $2 - CPU core
     echo "Launching container $1 on CPU core #$2"
-    sudo docker run --name "$1" --cpuset-cpus="$2" --network bridge -d miros12/http_server
+    sudo docker run --name "$1" --cpuset-cpus="$2" --network my_network -d -p 808$2:80 miros12/http_server
 }
 
 # Terminate a container
@@ -36,7 +36,7 @@ launch_container() {
         sudo docker rm -f "$1"
     fi
     echo "Launching container $1 on CPU core #$2"
-    sudo docker run --name "$1" --cpuset-cpus="$2" --network bridge -d miros12/http_server
+    sudo docker run --name "$1" --cpuset-cpus="$2" --network my_network -d -p 808$2:80 miros12/http_server
 }
 
 # Update running containers with a new image
